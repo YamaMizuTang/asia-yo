@@ -31,7 +31,7 @@ yarn dev
 ```
 
 
-```
+
 
 ## 程式碼風格
 本專案使用 Prettier 進行程式碼格式化，主要設定如下：
@@ -41,20 +41,7 @@ yarn dev
 - 分號：不使用
 - 最大行寬：100 字元
 
-## 開發指南
-1. 請確保在提交程式碼前執行格式化：
-```bash
-npm run format
-# 或
-yarn format
-```
 
-2. 提交前請執行測試：
-```bash
-npm run test
-# 或
-yarn test
-```
 
 
 ## 檔案說明
@@ -63,18 +50,22 @@ yarn test
 - 功能：爬取 Asia Yo 運動賽事網頁的資料
 - 輸出：生成 `activity.csv` 檔案
 - 內容：包含賽事名稱和每人最低價格
+- 備註：因為我的電腦為 Windows 系統，為了正常顯示中文因此加入 BOM 標記。此外，以正則表達式去除賽事名稱中日期的部分。
+
+
 
 ### csvToJson.js
 - 功能：將 CSV 檔案轉換為 JSON 格式
 - 輸入：讀取 `activity.csv`
 - 輸出：生成 `activity.json` 檔案
 - 處理：確保中文正確顯示，並將價格轉換為數字格式
+- 備註：因 CSV 資料儲存時加入 BOM，因此轉成 JSON 時有特別處理。
 
 ### sendApiRequest.js
 - 功能：發送 API 請求
 - 輸入：讀取 `activity.json`
 - 輸出：將資料發送到指定的 API 端點
-- 注意：目前設定為發送到 `'https://api.schedule.asiayo.com/'` 進行測試
+- 注意：測試時可使用 `testUrl = 'http://localhost:3000'`
 
 ### apiServer.js
 - 功能：測試用的本地 API 伺服器
