@@ -1,34 +1,45 @@
 # Asia Yo 賽事爬蟲專案
 
-## 專案說明
-這是一個使用現代網頁技術開發的專案。
 
 ## 開發環境設置
 
 ### 必要條件
-- Node.js (建議使用 LTS 版本)
-- npm 或 yarn 套件管理器
+- Node.js
+- npm 套件管理器
 
 ### 安裝步驟
 1. 複製專案
 ```bash
-git clone [專案網址]
+git clone https://github.com/YamaMizuTang/asia-yo
 cd asia-yo
 ```
 
 2. 安裝依賴套件
 ```bash
 npm install
-# 或
-yarn install
 ```
 
-3. 啟動開發伺服器
+3. 執行順序
 ```bash
-npm run dev
-# 或
-yarn dev
+node scrape.js
+node csvToJson.js
+node sendApiRequest.js
 ```
+
+如果想以本地 API 伺服器測試，請在執行 `sendApiRequest.js` 之前，先執行
+```bash
+node apiServer.js
+```
+並將
+```bash
+    const response = await axios.post(url, payload, { headers })
+```
+改為
+```bash
+    const response = await axios.post(testUrl, payload, { headers })
+```
+
+
 
 
 
