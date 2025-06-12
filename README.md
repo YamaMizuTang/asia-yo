@@ -30,13 +30,7 @@ npm run dev
 yarn dev
 ```
 
-## 專案結構
-```
-asia-yo/
-├── src/          # 原始碼目錄
-├── public/       # 靜態資源
-├── .prettierrc   # Prettier 設定檔
-└── package.json  # 專案依賴與腳本
+
 ```
 
 ## 程式碼風格
